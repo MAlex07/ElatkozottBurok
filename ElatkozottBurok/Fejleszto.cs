@@ -91,9 +91,33 @@ namespace ElatkozottBurok
         public string KedvencSnack { get => kedvencSnack; set => kedvencSnack = value; }
 
 
-        private void penzEllenorzes()
+        private void Dolgozik()
         {
+            if(kiegve)
+            {
+                Console.WriteLine($"{nev} kimerült és nem tud dolgozni");
+            }
 
+            switch (Munkakor)
+            {
+                case Munkakor.Junior:
+                    koffeinszint -= 25;
+                    stresszSzint += 20;
+                    break;
+                case Munkakor.Senior:
+                    koffeinszint -= 15;
+                    stresszSzint += 10;
+                    break;
+                case Munkakor.DevOpsVarazslo:
+                    koffeinszint -= 10;
+                    stresszSzint += 25;
+                    break;
+            }
+
+            if (koffeinszint <15)
+            {
+                Console.WriteLine($"{nev} agya lefagyott, koffeinre van szüksége!");
+            }
         }
     }
 }
