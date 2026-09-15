@@ -119,5 +119,16 @@ namespace ElatkozottBurok
                 Console.WriteLine($"{nev} agya lefagyott, koffeinre van szüksége!");
             }
         }
+
+        private void Fogyaszt(Nassolnivalo nassolnivalo)
+        {
+            koffeinszint += nassolnivalo.KoffeinLoket;
+            stresszSzint -= nassolnivalo.Stressoldas;
+            if(nassolnivalo.Nev == kedvencSnack)
+            {
+                stresszSzint -= nassolnivalo.Stressoldas * 2;
+                koffeinszint += nassolnivalo.KoffeinLoket + 5;
+            }
+        }
     }
 }
